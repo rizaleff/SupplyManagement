@@ -48,3 +48,4 @@ C:\Users\pc\source\repos\SupplyManagement\SupplyManagement\obj\Debug\net6.0\refi
 C:\Users\pc\source\repos\SupplyManagement\SupplyManagement\obj\Debug\net6.0\API.pdb
 C:\Users\pc\source\repos\SupplyManagement\SupplyManagement\obj\Debug\net6.0\API.genruntimeconfig.cache
 C:\Users\pc\source\repos\SupplyManagement\SupplyManagement\obj\Debug\net6.0\ref\API.dll
+C:\Users\pc\source\repos\SupplyManagement\SupplyManagement\obj\Debug\net6.0\API.sourcelink.json

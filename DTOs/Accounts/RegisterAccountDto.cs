@@ -17,6 +17,8 @@ public class RegisterAccountDto
     {
         return new()
         {
+
+            Email = accountDto.Email,
             Password = accountDto.Password,
             RoleGuid = Guid.NewGuid(),
             CreatedDate = DateTime.Now,
@@ -31,7 +33,6 @@ public class RegisterAccountDto
             Guid = Guid.NewGuid(),
             Name = accountDto.Name,
             Address = accountDto.Address,
-            Email = accountDto.Email,
             PhoneNumber = accountDto.PhoneNumber,
             AccountGuid = Guid.NewGuid(),
             CompanyLogo = null,

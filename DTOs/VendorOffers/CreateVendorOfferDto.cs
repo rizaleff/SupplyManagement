@@ -22,4 +22,4 @@ public class CreateVendorOfferDto
             OfferStatus = 0
         };
     }
-}
+}   

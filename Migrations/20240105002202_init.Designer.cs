@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(SupplyManagementDbContext))]
-    [Migration("20231230083126_removeEndDate")]
-    partial class removeEndDate
+    [Migration("20240105002202_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,11 @@ namespace API.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_date");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("email");
+
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("modified_date");
@@ -47,6 +52,9 @@ namespace API.Migrations
 
                     b.HasKey("Guid");
 
+                    b.HasIndex("Email")
+                        .IsUnique();
+
                     b.HasIndex("RoleGuid");
 
                     b.ToTable("tb_m_accounts");
@@ -54,15 +62,17 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Guid = new Guid("2304121e-7664-4d08-9dc2-728f627d60a4"),
-                            Password = "$2a$12$UkZaBzj9DQWfhLZXxcMXjurlNhUgd1coZ8gRZzfeBpW0jQZCQN8xS",
-                            RoleGuid = new Guid("018a38ea-2797-4a58-833d-e2fc9f7c39ac")
+                            Guid = new Guid("d85c5a55-6246-4197-9955-178e4bca3cca"),
+                            Email = "jennie@gmail.com",
+                            Password = "$2a$12$ok9ammrDiJPpUYRUoFGGjOgfhWfA35JAPar/6xDAgylm4wAnjNRiG",
+                            RoleGuid = new Guid("2637d8a8-b9bc-4970-b4ff-f3d1e6a7c84b")
                         },
                         new
                         {
-                            Guid = new Guid("c203b5ac-fc4c-4472-bf37-d1d68a71390b"),
-                            Password = "$2a$12$7q3naxSlzBUBJ5iFWL45HeXehhZdBEE0tp.b5DY.4HdS2gUtFsQy2",
-                            RoleGuid = new Guid("bd373ba1-d60b-461b-992f-4b5e2b3366a9")
+                            Guid = new Guid("1bde2d53-bb57-40d2-bea3-69a8e5ccd4f2"),
+                            Email = "chris@gmail.com",
+                            Password = "$2a$12$xTyeXRObDTFWoo.I1ac4G.3On6aUY2pTe58fiEnuJWSQUNzWwUNke",
+                            RoleGuid = new Guid("1cab2e89-0939-4589-9ed6-73eff2af8f04")
                         });
                 });
 
@@ -94,11 +104,6 @@ namespace API.Migrations
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_date");
 
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("varchar(100)")
-                        .HasColumnName("email");
-
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("modified_date");
@@ -118,7 +123,7 @@ namespace API.Migrations
                     b.HasIndex("AccountGuid")
                         .IsUnique();
 
-                    b.HasIndex("Email")
+                    b.HasIndex("PhoneNumber")
                         .IsUnique();
 
                     b.ToTable("tb_m_companies");
@@ -138,11 +143,6 @@ namespace API.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime(6)")
                         .HasColumnName("created_date");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("email");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -171,17 +171,13 @@ namespace API.Migrations
                     b.HasIndex("AccountGuid")
                         .IsUnique();
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
                     b.ToTable("tb_m_employees");
 
                     b.HasData(
                         new
                         {
-                            Guid = new Guid("f0ec7bcb-eeea-46dc-b9e3-31d6fe508f9b"),
-                            AccountGuid = new Guid("2304121e-7664-4d08-9dc2-728f627d60a4"),
-                            Email = "jennie@gmail.com",
+                            Guid = new Guid("ca86c66f-7e51-4e12-8979-2ad1b11d3e41"),
+                            AccountGuid = new Guid("d85c5a55-6246-4197-9955-178e4bca3cca"),
                             FirstName = "Jennie",
                             Gender = 1,
                             LastName = "Jane",
@@ -189,9 +185,8 @@ namespace API.Migrations
                         },
                         new
                         {
-                            Guid = new Guid("506cbf10-7388-4c4c-abc6-012a11417d8c"),
-                            AccountGuid = new Guid("c203b5ac-fc4c-4472-bf37-d1d68a71390b"),
-                            Email = "chris@gmail.com",
+                            Guid = new Guid("213bfd24-e51b-43c9-828a-67bc6eda17f3"),
+                            AccountGuid = new Guid("1bde2d53-bb57-40d2-bea3-69a8e5ccd4f2"),
                             FirstName = "Chris",
                             Gender = 0,
                             LastName = "Martin",
@@ -260,17 +255,17 @@ namespace API.Migrations
                     b.HasData(
                         new
                         {
-                            Guid = new Guid("018a38ea-2797-4a58-833d-e2fc9f7c39ac"),
+                            Guid = new Guid("2637d8a8-b9bc-4970-b4ff-f3d1e6a7c84b"),
                             Name = "Admin"
                         },
                         new
                         {
-                            Guid = new Guid("bd373ba1-d60b-461b-992f-4b5e2b3366a9"),
+                            Guid = new Guid("1cab2e89-0939-4589-9ed6-73eff2af8f04"),
                             Name = "Manager"
                         },
                         new
                         {
-                            Guid = new Guid("b2c86b5e-965d-4715-bd72-48a39fa41cc8"),
+                            Guid = new Guid("d5c2fb88-e6a2-43cf-bbc7-1e3bdef84a01"),
                             Name = "VendorCompany"
                         });
                 });

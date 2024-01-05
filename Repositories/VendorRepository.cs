@@ -12,7 +12,7 @@ public class VendorRepository : GeneralRepository<Vendor>, IVendorRepository{
     {
         try
         {
-            var vendorToUpdate = _context.Companies.FirstOrDefault(co => co.Guid == vendorDto.Guid);
+            var vendorToUpdate = _context.Vendors.FirstOrDefault(co => co.Guid == vendorDto.Guid);
             vendorToUpdate.ApprovalStatus = vendorDto.ApprovalStatus;
             vendorToUpdate.ModifiedDate = DateTime.Now;
 

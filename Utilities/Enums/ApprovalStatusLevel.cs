@@ -4,6 +4,6 @@ public enum ApprovalStatusLevel
     WaitingApproval,
     AcceptedByAdmin,
     AcceptedByManager,
-    NotFound,
+    Reject,
+    Complete
 }
-

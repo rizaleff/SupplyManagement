@@ -11,10 +11,12 @@ public class CompanyController : ControllerBase
 {
 
     private readonly ICompanyRepository _companyRepository;
+    private readonly IVendorRepository _vendorRepository;
 
-    public CompanyController(ICompanyRepository companyRepository)
+    public CompanyController(ICompanyRepository companyRepository, IVendorRepository vendorRepository)
     {
         _companyRepository = companyRepository;
+        _vendorRepository = vendorRepository;
     }
 
 
@@ -59,7 +61,9 @@ public class CompanyController : ControllerBase
         }
     }
 
+/*    [HttpGet("Detail")]
+    public IActionResult CompanyAndVendorDetail()
+    {
 
-
-
+    }*/
 }

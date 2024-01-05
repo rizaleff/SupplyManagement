@@ -28,4 +28,11 @@ public class CompanyRepository : GeneralRepository<Company>, ICompanyRepository{
             throw new ExceptionHandler(ex.InnerException?.Message ?? ex.Message);
         }
     }
+    public Company GetByAccountGuid(Guid guid)
+    {
+        var entity = _context.Set<Company>().FirstOrDefault(c => c.AccountGuid == guid);
+        _context.ChangeTracker.Clear();
+        return entity;
+    }
+
 }

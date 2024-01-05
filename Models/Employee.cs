@@ -17,9 +17,6 @@ public class Employee : BaseEntity
     [Column("gender")]
     public GenderLevel Gender { get; set; }
 
-    [Column("email", TypeName = "nvarchar(100)")]
-    public string Email { get; set; }
-
     [Column("account_guid")]
     public Guid AccountGuid { get; set; }
 

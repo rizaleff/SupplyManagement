@@ -11,8 +11,6 @@ public class Company : BaseEntity
 
     [Column("address", TypeName = "longtext")]
     public string Address {  get; set; }
-    [Column("email", TypeName = "varchar(100)")]
-    public string Email {  get; set; }
     [Column("phone_number", TypeName = "varchar(20)")]
     public string PhoneNumber {  get; set; }
     [Column("company_logo")]

@@ -7,6 +7,9 @@ public class Account : BaseEntity
     [Column("password", TypeName = "LONGTEXT")]
     public string Password { get; set; }
 
+    [Column("email", TypeName = "varchar(100)")]
+    public string Email { get; set; }
+
     [Column("role_guid")]
     public Guid RoleGuid { get; set; }
 

@@ -5,4 +5,5 @@ namespace API.Contracts;
 public interface ICompanyRepository : IGeneralRepository<Company>
 {
     public bool UpdateCompanyStatus(UpdateCompanyStatusDto companyDto);
+    Company GetByAccountGuid(Guid guid);
 }

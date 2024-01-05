@@ -22,8 +22,8 @@ public class SupplyManagementDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Employee>().HasIndex(e => e.Email).IsUnique();
-        modelBuilder.Entity<Company>().HasIndex(e => e.Email).IsUnique();
+        modelBuilder.Entity<Account>().HasIndex(a => a.Email).IsUnique();
+        modelBuilder.Entity<Company>().HasIndex(a => a.PhoneNumber).IsUnique();
 
         modelBuilder.Entity<Company>()
             .HasOne(c => c.Vendor)
@@ -94,6 +94,7 @@ public class SupplyManagementDbContext : DbContext
         var adminAccount = new Account
         {
             Guid = adminAccountGuid,
+            Email = "jennie@gmail.com",
             Password = HashingHandler.HashPassword("Admin1234"),
             RoleGuid = adminRoleGuid,
         };
@@ -102,6 +103,7 @@ public class SupplyManagementDbContext : DbContext
         var managerAccount = new Account
         {
             Guid = managerAccountGuid,
+            Email = "chris@gmail.com",
             Password = HashingHandler.HashPassword("Manager1234"),
             RoleGuid = managerRoleGuid
         };
@@ -112,7 +114,6 @@ public class SupplyManagementDbContext : DbContext
             Guid = Guid.NewGuid(),
             FirstName = "Jennie",
             LastName = "Jane",
-            Email = "jennie@gmail.com",
             Gender = GenderLevel.female,
             nik = "119119",
             AccountGuid = adminAccountGuid
@@ -123,7 +124,6 @@ public class SupplyManagementDbContext : DbContext
             Guid = Guid.NewGuid(),
             FirstName = "Chris",
             LastName = "Martin",
-            Email = "chris@gmail.com",
             Gender = GenderLevel.male,
             nik = "119120",
             AccountGuid = managerAccountGuid
